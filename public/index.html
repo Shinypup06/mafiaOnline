@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mafia (MVP)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+      .row { display:flex; gap:.5rem; margin:.5rem 0; flex-wrap: wrap; }
+      .card { border:1px solid #ddd; border-radius:12px; padding:1rem; margin:.5rem 0; }
+      input, button { padding:.6rem .8rem; border-radius:10px; border:1px solid #ccc; }
+      button { cursor:pointer }
+      ul { padding-left:1.2rem }
+      #role { font-weight: 700; }
+      .muted { color:#666 }
+    </style>
+  </head>
+  <body>
+    <h1>Mafia (MVP)</h1>
+
+    <div class="card">
+      <div class="row">
+        <input id="name" placeholder="Your name" />
+        <button id="createBtn">Create Lobby</button>
+      </div>
+      <div class="row">
+        <input id="joinCode" placeholder="4-digit code" maxlength="4" />
+        <button id="joinBtn">Join Lobby</button>
+      </div>
+      <div id="errors" class="muted"></div>
+    </div>
+
+    <div class="card">
+      <h2>Lobby: <span id="code">—</span></h2>
+      <div class="row">
+        <button id="leaveBtn">Leave</button>
+        <button id="startBtn">Start Game (host)</button>
+      </div>
+      <h3>Players</h3>
+      <ul id="players"></ul>
+      <div id="state" class="muted"></div>
+      <div id="timer" class="muted">—</div>
+    </div>
+
+    <div class="card">
+      <h3>Your Role</h3>
+      <div id="role">—</div>
+    </div>
+
+    <div class="card" id="nightActionsCard" style="display:none;">
+    <h3>Night Actions</h3>
+    <div id="nightActionsButtons"></div>
+    </div>
+
+    <div class="card" id="dayActionsCard" style="display:none;">
+        <h3>Vote to Eliminate</h3>
+        <div id="dayActionsButtons"></div>
+    </div>
+
+
+    <div class="card">
+      <h3>Chat</h3>
+      <ul id="chat"></ul>
+      <div class="row">
+        <input id="chatInput" placeholder="Say something…" />
+        <button id="chatSend">Send</button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+# Node modules (don’t upload, too big)
+node_modules/
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Environment variables (keep secrets safe!)
+.env
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+*.swp
