@@ -1,4 +1,5 @@
-const socket = io();
+const socket = io(window.location.origin);
+
 let phaseTimer = null;
 let playersGlobal = [];
 let myRole = ""; // store your role once received
